@@ -1,0 +1,72 @@
+oke hôm nay thầy yakhim sẽ giúp trò linhi hiểu rõ về hàm
+
+1. vai trò của hàm
+ví dụ mình cần thực hiện 1 công việc (còn gọi là task) yêu cầu thực hiện in ra 1 dòng 100 lần:
+print("yakhim đẹp trai")
+print("yakhim đẹp trai")
+print("yakhim đẹp trai")
+... em sẽ cần phải viết dòng này 100 lần, rất cực
+thì thay vì em viết 100 lần lệnh print thì em dùng vòng lặp đúng hong, khi đó em chỉ cần có 2 dòng, for ... xong print là xong, vòng lặp ở đây có tác dụng giúp em code ít hơn để thực hiện 1 công việc lặp lại, và nó thực hiện công việc đó liên tiếp nhau
+
+ví dụ tiếp theo em có 1 bài văn 1000 dòng:
+print("dòng 1.................
+    dòng 2..................
+    dòng 3.................
+    ....
+    dòng 1000.........")
+em cần in nó ra nhiều lần, nhưng em không biết được là khi nào em mới cần in nó ra, ví dụ như vòng lặp thì nó sẽ in liên tiếp ra hết, nhưng em lại gặp yêu cầu lúc này mới in lúc kia mới in thay vì in liên tiếp như vòng, đây là lúc em dùng hàm:
+def function():
+    print("dòng 1.................
+        dòng 2..................
+        dòng 3.................
+        ....
+        dòng 1000.........")
+
+mỗi lần em muốn in ra bài văn 1000 dòng đó em chỉ cần gọi function() là xong
+nôm na là hàm nó sẽ tương tự với vòng lặp, được tạo ra để em có thể thực hiện 1 task nhiều lần mà đỡ phải code lại hết đống đó, khác là vòng lặp sẽ thực hiện liên tiếp ngay và luôn, còn hàm là khi nào em gọi nó nó mới thực thi
+trong python def chỉ là từ khóa để em khai báo một hàm, mỗi ngôn ngữ lập trình sẽ có một cách khai báo hàm khác nhau, tí nữa qua c sharp anh sẽ bày em cú pháp-syntax của nó
+
+
+2. đầu vào của hàm (hay còn gọi là tham số - parameters):
+như đã nói hàm là để thực hiện task mỗi lần mình gọi nó, và đôi khi không phải lúc nào mình cũng cần thực hiện task đó theo cách giống nhau, ví dụ như lúc này em muốn in "linhi nhớ yakhim rồi" 1 lần, nhưng lúc khác em nhớ anh quá em lại muốn in 10 lần, trường hợp này em sẽ cần cho cái hàm của em một tham số đầu vào là số lần em muốn in nó ra:
+def function(SoLanInRa):
+    for i in range(SoLanInRa):
+        print("linhi nhớ yakhim rồi")
+
+khi đó ví dụ lúc này em muốn in ra 1 lần em sẽ gọi hàm function và truyền cho tham số (parameter) SoLanInRa một đối số (argument) là 1: function(1), còn lúc khác em muốn in ra 10 lần thì em truyền cho tham số (parameter) SoLanInRa một đối số (argument) là 10: function(10)
+
+
+3. đầu ra của hàm (hay còn gọi là giá trị trả về qua lênh return)
+đôi khi công việc mình cần hàm thực hiện là tính toán gì đó xong trả về cho mình 1 giá trị để mình sử dụng, đó là tác dụng của lệnh return, gía trị được trả về sẽ xuất hiện ở nơi mà em gọi hàm
+ví dụ em cần hàm tính tổng hai số, khi đó hàm của em sẽ có 2 parameter hay còn gọi là tham số đầu vào là 2 số, và return tổng 2 số đó:
+def tong(a, b):
+    return a + b
+
+tong2so = tong(1 + 2) // giá trị trả về được trả tại nơi gọi hàm
+print(tong2so)
+
+4. hàm trong c# hay c sharp:
+hàm trong python:
+- chỉ cần dùng từ khóa def để khai báo hàm
+- không cần khai báo (cho trình biên dịch biết) kiểu dữ liệu của giá trị tham số đầu vào hay giá trị trả về 
+ví dụ:
+def KiemTraSoDuong(number):
+    if number > 0:
+        return True
+    else:
+        return False
+hàm trong c sharp:
+- không dùng từ khóa def như python nhưng cần được định nghĩa bên trong 1 class nên buộc phải khai báo cả quyền truy cập là public, private,... và khai báo nó có phải là hàm tĩnh (static) hay không (cái này em giờ chưa cần quan tâm nhiều, cứ viết static public hay static private đi không sao đâu)
+- cần khai báo kiểu dữ liệu của giá trị tham số và kiểu dữ liệu của giá trị trả về, trong ví dụ hàm kiểm tra số dương, public là quyền truy cập, :
+static public bool KiemTraSoDuong(int number) {
+    if (number > 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+5. ref trong c# hay c sharp:
+ví dụ hàm đổi giá trị của 2 số trong python em có thể viết là
+def swap(a, b):
